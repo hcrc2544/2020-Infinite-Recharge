@@ -1,0 +1,5 @@
+**/__pycache__
+**/.vscode/*
+!**/.vscode/launch.json
+**/.deploy_cfg
+**/imgui.ini
