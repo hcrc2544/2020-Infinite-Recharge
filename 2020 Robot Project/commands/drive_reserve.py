@@ -6,8 +6,8 @@ class Drive_Reserve(Command):
         super().__init__("drive_reserve", subsystem=drive_subsystem)
         self.drive_subsystem = drive_subsystem
 
-    def _execute(self):
+    def execute(self):
         self.drive_subsystem.arcade_drive(0,0)
 
-    def _isFinished(self):
+    def isFinished(self):
         return False

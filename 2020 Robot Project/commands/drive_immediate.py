@@ -7,8 +7,8 @@ class Drive_Immediate(Command):
         self.y_speed = Y
         self.x_speed = X
 
-    def _execute(self):
+    def execute(self):
         self.drive_subsystem.arcade_drive(self.y_speed, self.x_speed)
     
-    def _isFinished(self):
+    def isFinished(self):
         return False

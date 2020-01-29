@@ -19,4 +19,3 @@ class Robot(CommandBasedRobot):
 
 if __name__ == "__main__":
     run(Robot)
-
