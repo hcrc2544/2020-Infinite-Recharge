@@ -2,6 +2,7 @@ from wpilib.command import Subsystem
 from ctre import WPI_TalonSRX
 from wpilib import SpeedControllerGroup, DoubleSolenoid
 
+
 class IntakeShooter(Subsystem): 
 
     def __init__(self):
@@ -9,8 +10,10 @@ class IntakeShooter(Subsystem):
 
         #motor reference may need inverted 
         self.front_roller_motor = WPI_TalonSRX(0)
+
         self.left_horizontal_motor = WPI_TalonSRX(1)
         self.right_horizontal_motor = WPI_TalonSRX(2)
+
         self.left_vertical_motor = WPI_TalonSRX(3)
         self.right_vertical_motor = WPI_TalonSRX(4)
         

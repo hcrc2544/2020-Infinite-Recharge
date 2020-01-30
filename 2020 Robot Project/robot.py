@@ -1,5 +1,6 @@
 from commandbased import CommandBasedRobot
 from subsystems.drive import Drive
+from subsystems.intake_shooter import IntakeShooter
 from oi import Operator_Interface
 from wpilib import run
 import ptvsd
@@ -10,7 +11,10 @@ class Robot(CommandBasedRobot):
         ptvsd.enable_attach(address=('0.0.0.0', 5678), redirect_output = True)
         # ptvsd.wait_for_attach()
 
+        #define subsystems
         self.drive_subsystem = Drive()
+        self.intake_shooter_subsystem = IntakeShooter()
+
         self.oi = Operator_Interface(self)
 
     def teleopPeriodic(self):
