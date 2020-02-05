@@ -16,7 +16,7 @@ class Operator_Interface():
         #y value is negated to drive in the desired direction
         new_command = Drive_Immediate(self.robot.drive_subsystem, -self.joystick_left.getY(), self.joystick_right.getX())
         Scheduler.getInstance().addCommand(new_command)
-        '''
+        
         if self.joystick_left.getRawButton(2):
            Extend_Roller(self.robot.intake_shooter_subsystem)
 
@@ -24,6 +24,6 @@ class Operator_Interface():
             Retract_Roller(self.robot.intake_shooter_subsystem)
     
         else:
-            pass
-        '''
+            pass #???
+    
 
