@@ -23,7 +23,7 @@ class Drive(Subsystem):
     
     def arcade_drive(self, Y , X):
         self.drive_controller.arcadeDrive(Y, X)
-        print('Right Encoder value:', self.right_encoder.getDistance(), 'Left Encoder value:', self.left_encoder.getDistance())
+        #print('Right Encoder value:', self.right_encoder.getDistance(), 'Left Encoder value:', self.left_encoder.getDistance())
 
     def initDefaultCommand(self):
         self.setDefaultCommand(Drive_Reserve(self))
