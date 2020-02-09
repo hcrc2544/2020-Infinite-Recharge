@@ -1,6 +1,5 @@
 from commandbased import CommandBasedRobot
-from subsystems.drive import Drive
-from subsystems.intake_shooter import IntakeShooter
+from subsystems import drive, intake_shooter, climber
 from oi import Operator_Interface
 from wpilib import run
 import ptvsd
@@ -12,8 +11,9 @@ class Robot(CommandBasedRobot):
         # ptvsd.wait_for_attach()
 
         #define subsystems
-        self.drive_subsystem = Drive()
-        self.intake_shooter_subsystem = IntakeShooter()
+        self.drive_subsystem = drive.Drive()
+        self.intake_shooter_subsystem = intake_shooter.IntakeShooter()
+        self.climber_subsystem = climber.Climber()
 
         self.oi = Operator_Interface(self)
 

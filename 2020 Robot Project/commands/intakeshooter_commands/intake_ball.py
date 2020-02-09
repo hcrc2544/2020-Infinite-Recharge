@@ -17,7 +17,7 @@ class Intake_Ball(Command):
         self.intake_shooter_subsystem.set_intake_speeds(1, 0.25)
 
         #set front roller to forward
-        if self.command_timer.get() < 1:
+        if self.command_timer.get() < 0.5:
             self.intake_shooter_subsystem.set_front_roller_posistion(DoubleSolenoid.Value.kForward)
         #turn off solenoid signal after a second
         else:
@@ -29,4 +29,4 @@ class Intake_Ball(Command):
         self.intake_shooter_subsystem.set_front_roller_posistion(DoubleSolenoid.Value.kOff)
 
     def isFinished(self):
-        return (self.command_timer.get() >= 1)
+        return (self.command_timer.get() >= 0.5)
