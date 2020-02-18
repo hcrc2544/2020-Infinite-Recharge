@@ -27,6 +27,6 @@ class Intake_Shooter_Reserve(Command):
         self.intake_shooter_subsystem.set_front_roller_posistion(DoubleSolenoid.Value.kOff)
    
     def isFinished(self):
-        return (self.command_timer.get() >= 0.5)
+        return False
 
 
