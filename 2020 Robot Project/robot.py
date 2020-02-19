@@ -1,7 +1,7 @@
 from commandbased import CommandBasedRobot
 from subsystems import drive, intake_shooter, climber
 from oi import Operator_Interface
-from wpilib import run
+from wpilib import run, CameraServer
 import ptvsd
 
 class Robot(CommandBasedRobot):
@@ -16,6 +16,8 @@ class Robot(CommandBasedRobot):
         self.climber_subsystem = climber.Climber()
 
         self.oi = Operator_Interface(self)
+
+        CameraServer.launch("vision.py:main")
 
     def teleopPeriodic(self):
         self.oi.teleop_update()
