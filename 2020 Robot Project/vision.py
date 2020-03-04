@@ -50,8 +50,8 @@ def main():
 
         # Put a rectangle on the image
         # cv2.rectangle(img, (100, 100), (300, 300), (255, 255, 255), 5)
-        threshold_img = cv2.inRange(img, (0, 0, 175), (100, 100, 255))
-
+        threshold_img = cv2.inRange(img, (220, 215, 190), (255, 255, 255))
+        
         erode_dilate_kernel = cv2.getStructuringElement(cv2.MORPH_RECT, (3, 3))
 
         threshold_img = cv2.erode(threshold_img, erode_dilate_kernel, iterations= 3)
@@ -61,9 +61,9 @@ def main():
         contours, hierarchy = cv2.findContours(threshold_img, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
         maximum_area = 0
-        '''
+        
         maximum_contour = np.array([[0,0],[0,0], [0,0]], dtype=np.int32)
-        '''
+        
         maximum_contour = np.array([])
         for cnt in contours:
             area = abs(cv2.contourArea(cnt))
@@ -75,21 +75,23 @@ def main():
         thresholdFrame3Ch = np.zeros_like(img)
         for channel in range(img.shape[2]):
             thresholdFrame3Ch[:, :, channel] = threshold_img    
-
+        
         if maximum_contour.size > 0:
             cv2.drawContours(thresholdFrame3Ch, [maximum_contour], 0, (0,0,255), 2)    
         
-
                 
 
 
 
 
         
-        '''
+        
         numComponents, labledFrame, stats, centroids = cv2.connectedComponentsWithStats(threshold_img, ltype= cv2.CV_16U)
-        '''
+        
         
         
         # Give the output stream a new image to display
+        
         outputStream.putFrame(thresholdFrame3Ch)
+      
+    
